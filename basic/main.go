@@ -1,9 +1,13 @@
 package main
 
 import (
+	"fmt"
+	"log"
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 var db = make(map[string]string)
@@ -14,7 +18,7 @@ type User struct {
 	Status string `json:"status"`
 }
 
-func router() *gin.Engine {
+func Router() *gin.Engine {
 
 	r := gin.Default()
 
@@ -63,6 +67,12 @@ func router() *gin.Engine {
 }
 
 func main() {
-	r := router()
-	r.Run(":8080")
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+	port := os.Getenv("PORT")
+
+	r := Router()
+	r.Run(fmt.Sprintf(":%s", port))
 }
