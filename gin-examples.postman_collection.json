@@ -1,0 +1,320 @@
+{
+	"info": {
+		"_postman_id": "c17def2b-d298-43ba-a7f9-f8b392bf13dd",
+		"name": "gin-examples",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7314315"
+	},
+	"item": [
+		{
+			"name": "basic",
+			"item": [
+				{
+					"name": "http://localhost:8080/admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Basic Zm9vOmJhcg=="
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \"user\":\"barbie\",\n    \"info\":\"Barbie is a fashion doll manufactured by American toy company Mattel and launched in 1959, created by American businesswoman Ruth Handler.\"}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "401",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Basic Zm9vOmJhcg==a"
+									},
+									{
+										"key": "content-type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"value\":\"bar\"}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Www-Authenticate",
+									"value": "Basic realm=\"Authorization Required\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jul 2023 02:14:37 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Basic Zm9vOmJhcg=="
+									},
+									{
+										"key": "content-type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \"user\":\"barbie\",\n    \"info\":\"Barbie is a fashion doll manufactured by American toy company Mattel and launched in 1959, created by American businesswoman Ruth Handler.\"}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jul 2023 02:36:39 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "15"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"ok\"\n}"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:8080/ping",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ping",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ping"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ping",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ping"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jul 2023 02:14:56 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4"
+								}
+							],
+							"cookie": [],
+							"body": "pong"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:8080/user/:name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/user/:name",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								":name"
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "ken"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/user/:name",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user",
+										":name"
+									],
+									"variable": [
+										{
+											"key": "name",
+											"value": "barbie"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jul 2023 02:36:55 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "177"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"User\": \"barbie\",\n    \"Info\": \"Barbie is a fashion doll manufactured by American toy company Mattel and launched in 1959, created by American businesswoman Ruth Handler.\",\n    \"Status\": \"\"\n}"
+						},
+						{
+							"name": "200 no info",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/user/:name",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user",
+										":name"
+									],
+									"variable": [
+										{
+											"key": "name",
+											"value": "ken"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jul 2023 02:37:18 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"User\": \"ken\",\n    \"Info\": \"\",\n    \"Status\": \"no info\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
