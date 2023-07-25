@@ -1,13 +1,10 @@
 package main
 
 import (
-	"fmt"
-	"log"
 	"net/http"
-	"os"
 
+	ginexamples "github.com/LucasPLopes/gin-examples"
 	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
 )
 
 var db = make(map[string]string)
@@ -67,12 +64,7 @@ func Router() *gin.Engine {
 }
 
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
-	port := os.Getenv("PORT")
-
+	port := ginexamples.GetPort()
 	r := Router()
-	r.Run(fmt.Sprintf(":%s", port))
+	r.Run(port)
 }
